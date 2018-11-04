@@ -1,0 +1,143 @@
+/*==========  Desktop First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+	ul.navbar-nav {
+		margin-top: 80px;
+		margin-bottom: 0;
+	}
+	.main_head .navbar-right {
+		margin-top: -115px;
+	}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+	ul.navbar-nav {
+		margin-top: 30px;
+		margin-bottom: 0;
+	}
+	ul.navbar-nav a{
+		padding: 18px 11px;
+		font-size: 13px;
+		z-index: 100;
+	}
+	.main_head .navbar-right {
+		margin-top: -125px;
+	}
+	.wn_item .panel {
+		max-width: initial;
+	}
+	.main_footer .col-sm-6 {
+		margin-bottom: 20px;
+		min-height: 75px;
+	}
+	.main_footer strong::before {
+	content: '';
+	height: 40%;
+	left: 0;
+	top: 4px;
+}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+	ul.navbar-nav {
+		margin-top: 20px;
+		margin-bottom: 0;
+	}
+	ul.navbar-nav a{
+		padding: 10px 11px;
+		font-size: 15px;
+	}
+	.main_head .navbar-right {
+		margin: 0;
+		text-align: center;
+	}
+	.carousel .item {
+		min-height: 550px;
+	}
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+	.carousel-inner .h1 {
+		font-size: 1.6em;
+		line-height: 1.2;
+	}
+	.carousel-inner small {
+		font-size: .7em;
+		margin-top: 10px;
+	}
+	.main_footer .col-xs-6 {
+		float: none;
+		text-align: center;
+		width: 100%;
+	}
+	.main_footer {
+		padding-top: 60px;
+		padding-bottom: 0;
+	}
+	.main_footer strong::before {
+	content: '';
+	display: none;
+}
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+
+}
+
+
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+	ul.navbar-nav {
+		margin-top: 30px;
+		margin-bottom: 0;
+	}
+	ul.navbar-nav a{
+		padding: 18px 11px;
+		font-size: 13px;
+	}
+	.main_head .navbar-right {
+		margin-top: -125px;
+	}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+	ul.navbar-nav {
+		margin-top: 80px;
+		margin-bottom: 0;
+	}
+	ul.navbar-nav a{
+		padding: 18px 15px;
+		font-size: 14px;
+	}
+	.main_head .navbar-right {
+		margin-top: -115px;
+	}
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+	ul.navbar-nav {
+		margin: 0;
+	}
+	.main_head .navbar-right {
+		margin-top: 0;
+	}
+}
