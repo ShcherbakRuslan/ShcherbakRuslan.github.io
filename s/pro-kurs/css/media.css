@@ -113,10 +113,6 @@
 
 }
 @media (min-height: 780px) and (min-width : 1400px) {
-	.tabs_header{
-		position: absolute;
-		bottom: 70px;
-	}
 	.tabs_header > div{
 		width: 100%;
 		max-width: 660px;
