@@ -263,6 +263,7 @@ margin-bottom: 20px;
 	padding: 30px 0;
 	font-family: "OpenSansBold", sans-serif;
 	font-weight: bold;
+	height: 198px;
 }
 .ben_item::before{
 	content: '';
