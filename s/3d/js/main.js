@@ -1,13 +1,15 @@
 window.onload = function() {
 // function main() {
-  const canvas = document.querySelector('#c');
+  // const canvas = document.querySelector('#c');
   var scene = new THREE.Scene();
-  var camera = new THREE.PerspectiveCamera(100, window.innerWidth/window.innerHeight, 0.1, 10000);
+  var camera = new THREE.PerspectiveCamera(65, window.innerWidth/window.innerHeight, 0.1, 10000);
   scene.add(camera);
+  var root = new THREE.Object3D();
+  scene.add(root);
   // camera.position.set(800, 15, -60);
   camera.position.set(100, 15, -60);
-  camera.lookAt(scene.position);
-  // camera.position.set(60, 15, 0);
+  // camera.lookAt(scene.position);
+  // camera.position.set(0, 15, 0);
                          
   var renderer = new THREE.WebGLRenderer({antialias:true, alpha: true});
 
@@ -29,7 +31,7 @@ document.body.appendChild( renderer.domElement );
   // var ambientLight = new THREE.AmbientLight(ambiColor, 0.3);
   // scene.add(ambientLight);
   // const renderer = new THREE.WebGLRenderer({canvas});
-  renderer.physicallyCorrectLights = true;
+  // renderer.physicallyCorrectLights = true;
 
   // const color1 = 0xFFFFFF;
   // const intensity1 = 1;
@@ -63,7 +65,7 @@ document.body.appendChild( renderer.domElement );
   // gridYZ.setColors( new THREE.Color(0x660000), new THREE.Color(0x660000) );
   // scene.add(gridYZ);
 
-const color = 0xFFFFFF;
+const color = 0xFF0000;
 const intensity = 6;
 const light = new THREE.DirectionalLight(color, intensity);
 light.position.set(-100, -100, 0);
@@ -71,7 +73,7 @@ light.target.position.set(30, 0, 0);
 scene.add(light);
 scene.add(light.target);
 
-const color3 = 0xFFFFFF;
+const color3 = 0xFF0000;
 const intensity3 = 6;
 const light3 = new THREE.DirectionalLight(color, intensity);
 light3.position.set(100, 100, 0);
@@ -126,7 +128,7 @@ gui3.add(light3.target.position, 'y', 0, 10);
 
   var meshes = [];
 
-  var objLoader = new THREE.OBJLoader();
+  // var objLoader = new THREE.OBJLoader();
 
   // objLoader.load( 'model/shape_09_5.obj', function ( object ) {
 
@@ -135,24 +137,20 @@ gui3.add(light3.target.position, 'y', 0, 10);
   //       meshes.push(child);
   //     }
   //   });
-
-  //   var head = meshes[0];
-
+    // var head = meshes[0];
   //   head.position.y = 0;
-
   //   // console.log(head.position.x);
   //   // console.log('===');
   //   // console.log(head.position.y);
   //   // console.log('===');
   //   // console.log(head.position.z);
-
   //   scene.add(head);
-
   // });
-
   // var mshBox;
 
   var mtlLoader = new THREE.MTLLoader();
+
+  // var qqq;
 
   mtlLoader.setPath( 'model/' );
   mtlLoader.load("shape_09_6.mtl", function(materials){
@@ -162,9 +160,21 @@ gui3.add(light3.target.position, 'y', 0, 10);
     objLoader.setMaterials(materials);
     objLoader.setPath( 'model/' );
     objLoader.load('ashapes_02.obj', function(object){
+      object.traverse( function ( child ) {
+        if ( child instanceof THREE.Mesh ) {
+          meshes.push(child);
+        }
+      });
+      var head = meshes[0];
       console.log(object);
-      scene.add(object);
-      object.position.y = 20;
+      // scene.add(object);
+      scene.add(head);
+      // object.position.y = 200;
+      // object.rotation.x = 360;
+      head.position.z = -200;
+      head.position.x = 100;
+      head.position.y = 50;
+// qqq = object;
       // mshBox = new THREE.Mesh(object);
     });
     // objLoader.load('ashapes_02.obj', function(object){
@@ -176,6 +186,53 @@ gui3.add(light3.target.position, 'y', 0, 10);
     // });
   });
 
+  var mouseDown = false,
+      mouseX = 0,
+      mouseY = 0;
+
+  function onMouseMove(evt) {
+    if (!mouseDown) {
+      return;
+    }
+    evt.preventDefault();
+    var deltaX = evt.clientX - mouseX,
+        deltaY = evt.clientY - mouseY;
+        mouseX = evt.clientX;
+        mouseY = evt.clientY;
+        rotateScene(deltaX, deltaY);
+    }
+
+    function onMouseDown(evt) {
+      evt.preventDefault();
+      mouseDown = true;
+      mouseX = evt.clientX;
+      mouseY = evt.clientY;
+    }
+
+    function onMouseUp(evt) {
+      evt.preventDefault();
+      mouseDown = false;
+    }
+
+    function addMouseHandler(canvas) {
+      canvas.addEventListener('mousemove', function (e) {
+        onMouseMove(e);
+      }, false);
+      canvas.addEventListener('mousedown', function (e) {
+        onMouseDown(e);
+      }, false);
+      canvas.addEventListener('mouseup', function (e) {
+        onMouseUp(e);
+      }, false);
+    }
+
+    function rotateScene(deltaX, deltaY) {
+      meshes[0].rotation.y += deltaX / 100;
+      meshes[0].rotation.x += deltaY / 100;
+    }
+
+    addMouseHandler(document.getElementsByTagName("canvas")[0]);
+    console.log(document.getElementsByTagName("canvas")[0]);
   // var textureBody = new THREE.Texture();
 
   // var manager = new THREE.LoadingManager();
@@ -226,17 +283,18 @@ gui3.add(light3.target.position, 'y', 0, 10);
   // controls.zoomSpeed = 1.2;
   // controls.panSpeed = 0.8;
 
-  const controls = new THREE.OrbitControls(camera, renderer.domElement);
-  controls.autoRotate = true;
+  // const controls = new THREE.OrbitControls(camera);
+  // controls.addEventListener( 'change', render );
+  // controls.autoRotate = true;
 
-  console.log(renderer.domElement);
-  console.log(controls);
+  // console.log(renderer.domElement);
+  // console.log(controls);
   // controls.target.set(5, 50, 5);
   // controls.update();
 
   var render = function () {
     requestAnimationFrame( render );
-    controls.update();
+    // controls.update();
     renderer.render(scene, camera);
   };
 
