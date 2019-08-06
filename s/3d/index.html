@@ -9,11 +9,35 @@
       margin: 0;
       overflow: hidden;
       background: radial-gradient(ellipse at center, #19212e 0%,#04070c 100%);
+      /*background: radial-gradient(ellipse at center, #fff 0%,#fff 100%);*/
+    }
+    .next {
+      position: absolute;
+      top: 50%;
+      right: 50px;
+      color: #fff;
+      border: 1px solid #fff;
+      padding: 10px;
+      cursor: pointer;
+    }
+    .prev {
+      position: absolute;
+      top: 50%;
+      left: 50px;
+      color: #fff;
+      border: 1px solid #fff;
+      padding: 10px;
+      cursor: pointer;
     }
     </style>
   </head>
   <body>
-    <canvas id="c"></canvas>
+    <div id="world">
+      <div id="c1"></div>
+      <div id="c2"></div>
+    </div>
+    <div class="prev" id="prevBtn" data-id="1">PREV</div>
+    <div class="next" id="nextBtn" data-id="2">NEXT</div>
 
     <script src="js/three.min.js"></script>
     <!-- <script src="https://threejsfundamentals.org/threejs/resources/threejs/r105/three.min.js"></script> -->
@@ -24,6 +48,7 @@
     <script src="js/OrbitControls.js"></script>
     <script src="https://threejsfundamentals.org/threejs/../3rdparty/dat.gui.min.js"></script>
     <!-- <script src="js/TrackballControls.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
