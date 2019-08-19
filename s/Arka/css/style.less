@@ -1,0 +1,111 @@
+* {
+	margin: 0;
+}
+
+body {
+	background-color: #000;
+	overflow: hidden;
+}
+
+.parallax_scene {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	&.d_1 {
+		z-index: 2;
+	}
+	&.d_2 {
+		z-index: 3;
+	}
+	&.d_3 {
+		z-index: 4;
+	}
+	&.p {
+		z-index: 30;
+	}
+}
+
+.sm {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.s1 {
+	background-image: url(../img/18_Fon.png);
+	z-index: 1;
+}
+.s2 {
+	background-image: url(../img/17_Derev.png);
+	z-index: 2;
+}
+.s3 {
+	background-image: url(../img/16_Derev.png);
+	z-index: 3;
+}
+.s4 {
+	background-image: url(../img/15_Derev.png);
+	z-index: 4;
+}
+
+.s5 {
+	background-image: url(../img/04_Tuman.png);
+	z-index: 20;
+}
+.s6 {
+	background-image: url(../img/07_Tuman.png);
+	z-index: 21;
+}
+.s7 {
+	background-image: url(../img/14_Tuman.png);
+	z-index: 9;
+}
+
+.s8 {
+	background-image: url(../img/01_Pil.png);
+	z-index: 30;
+}
+.s9 {
+	background-image: url(../img/02_Pil.png);
+	z-index: 31;
+}
+
+.s10 {
+	background-image: url(../img/06_Holm.png);
+	z-index: 100;
+}
+.s11 {
+	background-image: url(../img/03_Trava.png);
+	z-index: 101;
+}
+
+.m1 {
+	background-image: url(../img/10_Derevo.png);
+	z-index: 10;
+}
+
+.t1 {
+	width: 300%;
+	height: 300%;
+	top: -100%;
+	left: -100%;
+	background-image: url(../img/0_Tuman.jpg);
+	// background-color: coral;
+  background-blend-mode: luminosity;
+  opacity: 0.3;
+  animation: rotate 60s linear infinite;
+	z-index: 11;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(360deg);
+  }
+}
