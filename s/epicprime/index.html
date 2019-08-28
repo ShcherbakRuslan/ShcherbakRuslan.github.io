@@ -7,8 +7,16 @@
 	<link rel="stylesheet" href="css/reboot-dist.css" />
 	<link rel="stylesheet" type="text/css" href="libs/slick-1.8.1/slick/slick.css"/>
 	<link rel="stylesheet" type="text/css" href="libs/slick-1.8.1/slick/slick-theme.css"/>
-	<link rel="stylesheet" href="http://anijs.github.io/lib/anicollection/anicollection.css">
-	<link rel="stylesheet" href="libs/anijs-master/animate.css">
+ 	
+	<script>
+		if(document.documentElement.clientWidth>1024){
+			document.write('<link rel="stylesheet" href="http://anijs.github.io/lib/anicollection/anicollection.css">');
+			document.write('<link rel="stylesheet" href="libs/anijs-master/animate.css">');
+		}
+	</script>
+	<!-- <link rel="stylesheet" href="http://anijs.github.io/lib/anicollection/anicollection.css"> -->
+	<!-- <link rel="stylesheet" href="libs/anijs-master/animate.css"> -->
+
 	<link rel="stylesheet" href="css/style.css?v=4" />
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -124,7 +132,10 @@
 		<div class="partnership_with__wrap" data-anijs="if: scroll, on: window, do: fadeIn animated, before: scrollReveal">
 			<div class="partnership_with__i">
 				<h2>partnership with</h2>
-				<img src="img/lg_logo.png" alt="">
+				<div class="img_wrap">
+					<img src="img/LG_Electronics.svg" alt="">
+				</div>
+				
 				<p>Bauhaus X is proud to announce a massive partnership with LG Electronics LED division.</p>
 				<p>Bauhaus X and LG Electronics will now deploy over 300 giant digital billboards in America within the next 3 years.</p>	
 				<p>“We are very proud of this partnership with LG. It is an amazing achievement and at the same time an extension of a deeper partnership in our design bureau.</p>
@@ -407,7 +418,7 @@
 			</div>
 			<div class="design__logo_lg">
 				<p>IN PARTNERSHIP WITH</p>
-				<img src="img/lg_logo.png" alt="LG">
+				<img src="img/LG_Electronics.svg" alt="LG">
 			</div>
 		</div>
 	</div>
@@ -482,8 +493,22 @@
     }
   </script>
 
-  <script src="libs/anijs-master/anijs-min.js"></script>
-  <script src="libs/anijs-master/anijs-helper-scrollreveal-min.js"></script>
+  <script>
+		if(document.documentElement.clientWidth>1024){
+
+			var my_awesome_script1 = document.createElement('script');
+			var my_awesome_script2 = document.createElement('script');
+
+			my_awesome_script1.setAttribute('src','libs/anijs-master/anijs-min.js');
+			my_awesome_script2.setAttribute('src','libs/anijs-master/anijs-helper-scrollreveal-min.js');
+
+			document.body.appendChild(my_awesome_script1);
+			document.body.appendChild(my_awesome_script2);
+		}
+	</script>
+
+  <!-- <script src="libs/anijs-master/anijs-min.js"></script>
+  <script src="libs/anijs-master/anijs-helper-scrollreveal-min.js"></script> -->
   <script src="libs/slick-1.8.1/slick/slick.min.js"></script>
   <script src="js/main.js?v=1"></script>
 </body>
