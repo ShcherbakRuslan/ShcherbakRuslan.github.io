@@ -1,7 +1,7 @@
 <?php
 
-$recepient = "info@epicprime.us";
-$sitename = "EPIC";
+$recepient = "info@bauhausx.media";
+$sitename = "Bauhaus X Media";
 
 if ($_POST['phone']!=''){
 	die('Bots - no!');
